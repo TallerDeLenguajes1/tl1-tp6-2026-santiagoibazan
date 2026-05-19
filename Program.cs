@@ -5,7 +5,7 @@ float F;
 do {
     Console.WriteLine("1 - Suma \n2 - Resta \n3 - Multiplicacion \n4 - Division \n" 
         + "5 - Valor Absoluto \n6 - Cuadrado de un numero \n7 - Raiz Cuadrada \n8 - Seno\n" 
-        + "9 - Coseno \n10 - Parte entera de un float \n0 - Terminar programa");
+        + "9 - Coseno \n10 - Parte entera de un float \n11 - Minimo y Maximo \n0 - Terminar programa");
     if (int.TryParse(Console.ReadLine(), out op)) {
         switch (op) {
             case 0:
@@ -80,7 +80,7 @@ do {
                 }
                 break;
             case 6:
-                Console.WriteLine("Ingrese un numero");
+                Console.WriteLine("Ingrese un numero con decimal separado por coma");
                 if (double.TryParse(Console.ReadLine(), out C)) {
                     resultadoDouble = Math.Pow(C, 2.0d);
                     Console.Write($"{C} al cuadrado = {resultadoDouble}");
@@ -89,7 +89,7 @@ do {
                 }
                 break;
             case 7:
-                Console.WriteLine("Ingrese un numero");
+                Console.WriteLine("Ingrese un numero con decimal separado por coma");
                 if (double.TryParse(Console.ReadLine(), out C)) {
                     resultadoDouble = Math.Sqrt(C);
                     Console.Write($"La raiz cuadrada de {C} = {resultadoDouble}");
@@ -98,7 +98,7 @@ do {
                 }
                 break;
             case 8:
-                Console.WriteLine("Ingrese un numero");
+                Console.WriteLine("Ingrese un numero con decimal separado por coma");
                 if (double.TryParse(Console.ReadLine(), out C)) {
                     resultadoDouble = Math.Sin(C);
                     Console.Write($"Seno de {C} = {resultadoDouble}");
@@ -107,7 +107,7 @@ do {
                 }
                 break;
             case 9:
-                Console.WriteLine("Ingrese un numero");
+                Console.WriteLine("Ingrese un numero con decimal separado por coma");
                 if (double.TryParse(Console.ReadLine(), out C)) {
                     resultadoDouble = Math.Cos(C);
                     Console.Write($"Coseno de {C} = {resultadoDouble}");
@@ -116,13 +116,28 @@ do {
                 }
                 break;
             case 10:
-                Console.WriteLine("Ingrese un numero");
+                Console.WriteLine("Ingrese un numero con decimal separado por coma");
                 if (float.TryParse(Console.ReadLine(), out F)) {
                     A = (int) F;
                     Console.WriteLine($"Parte entera de {F} = {A}");
                 } else {
                     Console.WriteLine("Error");
                 }
+                break;
+            case 11:
+                Console.WriteLine("Ingrese el primer valor");
+                if (int.TryParse(Console.ReadLine(), out A)) {
+                    Console.WriteLine("Ingrese el segundo valor");
+                    if (int.TryParse(Console.ReadLine(), out B)) {
+                        Console.WriteLine($"Maximo = {Math.Max(A, B)}");
+                        Console.WriteLine($"Minimo = {Math.Min(A, B)}");
+                    } else {
+                        Console.WriteLine("Error al ingresar el valor B");
+                    }
+                } else {
+                    Console.WriteLine("Error al ingresar el valor A");
+                }
+                
                 break;
             default:
                 Console.WriteLine("Ingrese una opcion valida");
